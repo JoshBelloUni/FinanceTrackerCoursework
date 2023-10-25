@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Expenses</h1>
+
+<table>
+    <tr>
+        <th>Type</th>
+        <th>Cost</th>
+        <th>Date</th>
+    </tr>
+    {% for expense in expenses %}
+    <tr>
+        <td>{{ expense.type }}</td>
+        <td>{{ expense.cost }}</td>
+        <td>{{ expense.date }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<div class="row">
+  <div class="col-4"></div>
+  <div class="col-4">
+      <a href="{{ button_url }}" class="btn btn-primary mt-2">Add Expense</a>
+  </div>
+</div>
+
+{% endblock %}

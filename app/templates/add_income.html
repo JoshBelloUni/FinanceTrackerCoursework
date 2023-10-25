@@ -1,0 +1,17 @@
+{% extends "expenses.html" %}
+{% block content %}
+<h1>Add Income</h1>
+<p>Enter your income information below:</p>
+<form method="POST" action="/incomes/add_income">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        {{ form.type.label(class="form-control-label") }}
+        {{ form.type(class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ form.cost.label(class="form-control-label") }}
+        {{ form.cost(class="form-control") }}
+    </div>
+    <button type="submit" class="btn btn-outline-info">Submit</button>
+</form>
+{% endblock %}
