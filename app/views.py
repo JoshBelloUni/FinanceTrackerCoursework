@@ -13,9 +13,6 @@ from .forms import IncomesForm
 from .models import Incomes
 from app.models import Incomes
 
-
-
-
 # home page
 @app.route('/', methods=['GET', 'POST'])
 def home():
