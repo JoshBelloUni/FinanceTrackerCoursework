@@ -1,16 +1,9 @@
 {% extends "expenses.html" %}
 {% block content %}
-<h1>Add Expense</h1>
-
-{% if error_message is not none %}
-<div class="alert alert-danger">
-    {{ error_message }}
-</div>
-{% endif %}
-
+<h1>Edit Expense</h1>
 <div class="form-container">
-    <h4>Enter your expense information below:</h4>
-    <form method="POST" action="/expenses/add_expense">
+    <h5>Update your expense information below:</h5>
+    <form method="POST" action="{{ expense.id }}">
         {{ form.hidden_tag() }}
         <div class="form-group">
             {{ form.type.label(class="form-control-label") }}
@@ -20,7 +13,14 @@
             {{ form.cost.label(class="form-control-label") }}
             {{ form.cost(class="form-control") }}
         </div>
-        <button type="submit" class="btn btn-outline-info">Submit</button>
+        <button type="submit" class="btn btn-outline-info">Save Changes</button>
     </form>
 </div>
+
+{% if error_message %}
+<div class="alert alert-danger">
+    {{ error_message }}
+</div>
+{% endif %}
+
 {% endblock %}

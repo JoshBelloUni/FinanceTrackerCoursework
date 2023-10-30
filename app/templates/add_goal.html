@@ -1,0 +1,21 @@
+{% extends "non_home.html" %}
+{% block page_content %}
+<h1>Add Goal</h1>
+
+<div class="form-container">
+    <h4>Add or Change your goal below:</h4>
+    <form method="POST" action="/add_goal">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.goal.label(class="form-control-label") }}
+            {{ form.goal(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.amount.label(class="form-control-label") }}
+            {{ form.amount(class="form-control") }}
+        </div>
+        <button type="submit" class="btn btn-outline-info">Submit</button>
+    </form>  
+</div>
+
+{% endblock %}

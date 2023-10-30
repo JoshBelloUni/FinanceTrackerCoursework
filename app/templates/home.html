@@ -1,6 +1,59 @@
 {% extends "base.html" %}
-{% block content %}
+{% block content %} 
 
-<h1>Home</h1>
-{{home.description}}
+<div class="centered-container">
+    <h1>Home</h1>
+    {% if progress >= 100 %}
+        <h3>Congratulations! You have achieved your goal.</h3>
+    {% else %}
+        <h3>You are {{ progress }}% away from your goal!</h3>
+    {% endif %}
+</div>
+
+<div class="homeBoxContainer">
+    <div class="homeBox">
+        <h6><i class="fas fa-shopping-cart fa-lg" style="vertical-align: middle;"></i> Current Expenses <i class="fas fa-shopping-cart fa-lg" style="vertical-align: middle;"></i></h6>
+        <p>You have spent £{{ total_expenses }}</p>
+    </div>
+
+    {% if goal_id != 0 %}
+        <div class="homeBox circle-box">
+            <h6>Your Goal</h6>
+            <p>Your goal is to save £{{ goalAmount }} for: {{ goalName }}</p>
+            <p>You have saved £{{ total_incomes - total_expenses }}</p>
+            <p>You need to save £{{ goalAmount - total_incomes + total_expenses }}</p>
+        </div>
+    {% else %}
+        <div class="homeBox circle-box">
+            <h3>You need a goal!</h3>
+        </div>
+    {% endif %}
+    <div class="homeBox">
+        <h6><i class="fas fa-money-bill" style="vertical-align: middle;"></i> Current Incomes <i class="fas fa-money-bill" style="vertical-align: middle;"></i></h6>
+        <p>You have earned £{{ total_incomes }}</p>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <div class="progress" style="height: 50px;">
+                <div class="progress-bar progress-bar-striped progress-bar-animated"
+                    style="width: {{progress}}%"
+                    role="progressbar" 
+                    aria-valuemin="0" 
+                    aria-valuemax="100">{{ progress }}%
+                </div>
+            </div>  
+        </div>
+    </div>
+</div>
+
+{% if goal_id != 0 %}
+<div class="centered-container">
+    <a href="{{ url_for('remove_goal', goal_id=goal_id) }}" class="btn btn-danger-home">Delete</a>
+</div>
+{% endif %}
+
 {% endblock %}

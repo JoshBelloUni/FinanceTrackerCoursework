@@ -9,3 +9,7 @@ class ExpensesForm(FlaskForm):
 class IncomesForm(FlaskForm):
     type = StringField('Type', validators=[DataRequired()])
     cost = FloatField('Cost', validators=[DataRequired()])
+
+class GoalsForm(FlaskForm):
+    goal = StringField('Goal', validators=[DataRequired()])
+    amount = FloatField('Amount', validators=[DataRequired()])
