@@ -16,6 +16,13 @@
         </div>
         <button type="submit" class="btn btn-outline-info">Submit</button>
     </form>  
+
+    {% if form.amount.errors %}
+    <div class="alert alert-danger">
+        <p>Invalid Data</p>
+    </div>
+    {% endif %}
+
 </div>
 
 {% endblock %}

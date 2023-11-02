@@ -1,5 +1,5 @@
-{% extends "expenses.html" %}
-{% block content %}
+{% extends "non_home.html" %}
+{% block page_content %}
 <h1>Add Income</h1>
 <div class="form-container">
     <h4>Enter your income information below:</h4>
@@ -16,5 +16,11 @@
         <button type="submit" class="btn btn-outline-info">Submit</button>
 </form>
 </div>
+
+{% if form.cost.errors %}
+<div class="alert alert-danger">
+    <p>Invalid Data</p>
+</div>
+{% endif %}
 
 {% endblock %}

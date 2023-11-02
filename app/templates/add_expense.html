@@ -1,12 +1,6 @@
-{% extends "expenses.html" %}
-{% block content %}
+{% extends "non_home.html" %}
+{% block page_content %}
 <h1>Add Expense</h1>
-
-{% if error_message is not none %}
-<div class="alert alert-danger">
-    {{ error_message }}
-</div>
-{% endif %}
 
 <div class="form-container">
     <h4>Enter your expense information below:</h4>
@@ -22,5 +16,13 @@
         </div>
         <button type="submit" class="btn btn-outline-info">Submit</button>
     </form>
+
 </div>
+
+{% if form.cost.errors %}
+<div class="alert alert-danger">
+    <p>Invalid Data</p>
+</div>
+{% endif %}
+
 {% endblock %}

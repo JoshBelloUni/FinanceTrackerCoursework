@@ -10,30 +10,38 @@
     {% endif %}
 </div>
 
+<!-- display information for expenses -->
 <div class="homeBoxContainer">
     <div class="homeBox">
         <h6><i class="fas fa-shopping-cart fa-lg" style="vertical-align: middle;"></i> Current Expenses <i class="fas fa-shopping-cart fa-lg" style="vertical-align: middle;"></i></h6>
-        <p>You have spent £{{ total_expenses }}</p>
+        <p>You have spent <strong>£{{ total_expenses }}</strong></p>
+        <p>Your latest expenditure was: <strong>{{ latest_expense.type }}</strong>, which was <strong>£{{ latest_expense.cost }}</strong></p>
     </div>
 
+    <!-- display goal information -->
     {% if goal_id != 0 %}
         <div class="homeBox circle-box">
-            <h6>Your Goal</h6>
-            <p>Your goal is to save £{{ goalAmount }} for: {{ goalName }}</p>
-            <p>You have saved £{{ total_incomes - total_expenses }}</p>
-            <p>You need to save £{{ goalAmount - total_incomes + total_expenses }}</p>
+            <h5>Your Goal</h5>
+            <p>Your goal is to save <strong>£{{ goalAmount }}</strong> for: <strong>{{ goalName }}</strong></p>
+            <p>You have saved <strong>£{{ total_incomes - total_expenses }}</strong></p>
+            <p>You need to save <strong>£{{ goalAmount - total_incomes + total_expenses }}</strong></p>
         </div>
+    <!-- this is only ran if there is no goal -->
     {% else %}
         <div class="homeBox circle-box">
             <h3>You need a goal!</h3>
         </div>
     {% endif %}
+
+    <!-- display information for incomes -->
     <div class="homeBox">
         <h6><i class="fas fa-money-bill" style="vertical-align: middle;"></i> Current Incomes <i class="fas fa-money-bill" style="vertical-align: middle;"></i></h6>
-        <p>You have earned £{{ total_incomes }}</p>
+        <p>You have earned <strong>£{{ total_incomes }}</strong></p>
+        <p>Your latest income was: <strong>{{ latest_income.type }}</strong>, which was <strong>£{{ latest_income.cost }}</strong></p>
     </div>
 </div>
 
+<!-- display the progress bar -->
 <div class="container-fluid">
     <div class="row">
         <div class="col-2"></div>

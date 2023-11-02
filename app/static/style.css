@@ -110,12 +110,31 @@ h3 {
 }
 
 .btn-danger-home {
-    background-color: rgb(255, 255, 255);
-    color: rgb(255, 0, 0); /* Text color */
+    background-color: rgb(255, 199, 199);
+    color: rgb(184, 0, 0); 
     padding: 10px 20px;
-    border: 2px solid #ff0000;
+    border: 2px solid rgb(184, 0, 0);
     border-radius: 8px;
     text-decoration: dotted;
     margin-top: 15px;
 }
 
+.alert.alert-danger {
+    background-color: #f5d2d2;
+    color: #990000; 
+    border-color: #cc0000; 
+    border-radius: 8px;
+    padding: 10px; 
+    font-size: 16px; 
+    margin-top: 10px;
+}
+
+.btn.btn-outline-info {
+    border-color: #000000;
+    background-color: #19960d;
+    color: rgb(255, 255, 255);
+}
+
+.btn.btn-outline-info:hover {
+    background-color: #22700e ; 
+}
